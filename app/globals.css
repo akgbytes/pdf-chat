@@ -143,3 +143,12 @@
 .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
   border-radius: 7px;
 }
+
+.bg-gradient-sky {
+  background-image: linear-gradient(
+    135deg,
+    hsl(198.6 88.7% 48.4%),
+    hsl(200 100% 65%),
+    hsl(210 90% 35%)
+  );
+}

@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-24 sm:py-32">
+    <section className="relative py-24">
       <MaxWidthWrapper className="text-center">
         <div className="relative mx-auto text-center flex flex-col items-center gap-10">
           <div>
