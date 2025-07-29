@@ -2,6 +2,7 @@ import CTA from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { Navbar } from "@/components/Navbar";
 import { Heading } from "@/components/ui/heading";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
+      <Navbar />
       <HeroSection />;
       <div>
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
