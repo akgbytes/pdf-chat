@@ -1,4 +1,4 @@
-import { CodeXml, Heart, MessageSquare } from "lucide-react";
+import { Heart, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiGithub, FiLinkedin } from "react-icons/fi";

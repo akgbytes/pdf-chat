@@ -1,13 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { MessageSquare, ArrowRight, Star } from "lucide-react";
 import { CustomButton } from "./ui/custom-button";
 import { Heading } from "./ui/heading";
 
 const CTA = () => {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background decoration */}
-
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-3xl mx-auto">
           <Heading>Ready to transform how you read PDFs?</Heading>
