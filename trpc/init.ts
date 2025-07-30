@@ -1,14 +1,28 @@
-import { initTRPC } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { Context } from "./context";
 
 const t = initTRPC.context<Context>().create({
-  /**
-   * @see https://trpc.io/docs/server/data-transformers
-   */
   transformer: superjson,
 });
-// Base router and procedure helpers
+
+const middleware = t.middleware;
+
+const isAuth = middleware(async (opts) => {
+  const { userId } = opts.ctx.auth;
+
+  if (!userId) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+
+  return opts.next({
+    ctx: {
+      userId,
+    },
+  });
+});
+
 export const createTRPCRouter = t.router;
 export const createCallerFactory = t.createCallerFactory;
-export const baseProcedure = t.procedure;
+export const publicProcedure = t.procedure;
+export const privateProcedure = t.procedure.use(isAuth);
