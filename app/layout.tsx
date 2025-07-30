@@ -3,6 +3,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { inter } from "@/lib/fonts";
 import { ClerkProvider } from "@clerk/nextjs";
+import { TRPCReactProvider } from "@/trpc/client";
 
 export const metadata: Metadata = {
   title: "PDFChat",
@@ -17,16 +18,18 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={cn(
-            "min-h-[calc(100vh-1px)] flex flex-col grainy antialiased",
-            inter.className
-          )}
-        >
-          <main className="relative flex-1 flex flex-col">{children}</main>
-        </body>
-      </html>
+      <TRPCReactProvider>
+        <html lang="en">
+          <body
+            className={cn(
+              "min-h-[calc(100vh-1px)] flex flex-col grainy antialiased",
+              inter.className
+            )}
+          >
+            <main className="relative flex-1 flex flex-col">{children}</main>
+          </body>
+        </html>
+      </TRPCReactProvider>
     </ClerkProvider>
   );
 }

@@ -9,7 +9,9 @@ const Page = () => {
   const searchParams = useSearchParams();
   const origin = searchParams.get("origin");
   const trpc = useTRPC();
-  return <div>Loading...</div>;
+  const greeting = useQuery(trpc.hello.queryOptions({ text: "world" }));
+  if (!greeting.data) return <div>Loading...</div>;
+  return <div>{greeting.data.greeting}</div>;
 };
 
 export default Page;
