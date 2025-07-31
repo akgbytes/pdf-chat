@@ -1,17 +1,21 @@
-"use client";
-
 import { useState } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "./ui/dialog";
 import { Button } from "./ui/button";
+import UploadDropzone from "./UploadDropzone";
 
 const UploadButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger onClick={() => setIsOpen(true)} asChild>
         <Button>Upload PDF</Button>
       </DialogTrigger>
-      <DialogContent>WIll DO LATER</DialogContent>
+
+      <DialogContent>
+        <DialogTitle className="hidden" />
+        <UploadDropzone />
+      </DialogContent>
     </Dialog>
   );
 };

@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Dashboard from "@/components/Dashboard";
+import { Navbar } from "@/components/Navbar";
 
 export default async function Page() {
   const user = await currentUser();
@@ -11,5 +12,10 @@ export default async function Page() {
 
   if (!dbUser) redirect("/auth-callback?origin=dashboard");
 
-  return <Dashboard />;
+  return (
+    <>
+      <Navbar />
+      <Dashboard />
+    </>
+  );
 }

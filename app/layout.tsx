@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { inter } from "@/lib/fonts";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TRPCReactProvider } from "@/trpc/client";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "PDFChat",
@@ -27,6 +28,7 @@ export default function RootLayout({
             )}
           >
             <main className="relative flex-1 flex flex-col">{children}</main>
+            <Toaster />
           </body>
         </html>
       </TRPCReactProvider>
